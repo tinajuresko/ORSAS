@@ -1,0 +1,30 @@
+.theme-modal-div {
+    border-radius: 8px;
+
+    width: 50px; 
+    height: 230px;
+    position: absolute; 
+    top: 70px; 
+    left: 5px;
+    z-index: 100;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: center;
+
+    padding: 18px 18px 18px 18px;
+
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+.theme-modal-div a {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    cursor: pointer;
+}

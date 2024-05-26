@@ -1,0 +1,41 @@
+:root {
+  --background-color: #FFFFFF;
+  --text-color: #000000;
+  --background-color-nav: #879add;
+  --background-homepage: #eff7f9;
+  --text-form: #3558d9;
+  --input-color: rgb(239, 233, 233);
+  
+}
+.dark{
+  --background-color: #4D638C;
+  --text-color: gainsboro;
+  --background-color-nav: #576390;
+  --background-homepage: #859ab9;
+  --text-form: gainsboro;
+  --input-color: #607595;
+}
+
+body.light {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+body.dark {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
