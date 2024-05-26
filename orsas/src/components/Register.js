@@ -39,27 +39,28 @@ const Login = () => {
         console.log(korisnikime);
         console.log(korisnikprezime);
         console.log(korisniksifra);
-      e.preventDefault();
-      try {
-          const response = await fetch('http://localhost:5000/api/register', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({ korisnikime, korisnikemail, korisniksifra, korisnikprezime, organization })
-          });
+        e.preventDefault();
+        try {
+            const response = await fetch('http://localhost:5000/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ korisnikime, korisnikemail, korisniksifra, korisnikprezime, organization })
+            });
 
-          if (response.ok) {
-              console.log('User registered successfully');
-              navigate('/');
-          } else {
-              console.log('Registration failed');
-              setError('Username already exists');
-          }
-      } catch (err) {
-          console.error('Error during registration:', err.message);
-          setError('Error during registration. Please try again');
-      }
+            if (response.ok) {
+                console.log('User registered successfully');
+                navigate('/');
+            } else {
+                console.log('Registration failed');
+                const data = await response.json(); 
+                setError(data.message);
+            }
+        } catch (err) {
+            console.error('Error during registration:', err.message);
+            setError('Error during registration. Please try again.');
+        }
     };
   
     return (

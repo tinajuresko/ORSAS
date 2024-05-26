@@ -73,7 +73,6 @@ const AddEvent = ({ onSubmit }) => {
       });
       if (response.ok) {
         console.log('Event added successfully');
-        
         navigate('/homepage');
       } else {
         console.error('Failed to add event');
