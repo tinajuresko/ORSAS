@@ -2,12 +2,13 @@ import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import AddEvent from '../components/AddEvent'; 
+import { BrowserRouter as Router } from 'react-router-dom';
 
-Storage.prototype.getItem = jest.fn(() => 'mockedUser');
+Storage.prototype.getItem = jest.fn(() => 'mockedToken');
 
 describe('AddEvent component', () => {
   test('renders AddEvent component', () => {
-    render(<AddEvent />);
+    render(<Router><AddEvent /></Router>);
     expect(document.querySelector('.addEvent')).toBeInTheDocument();
   });
 
@@ -15,7 +16,7 @@ describe('AddEvent component', () => {
     const mockedFetch = jest.fn(() => Promise.resolve({ ok: true }));
     global.fetch = mockedFetch;
 
-    const { getByLabelText, getByText } = render(<AddEvent />);
+    const { getByLabelText, getByText } = render(<Router><AddEvent /></Router>);
 
     // Fill in form fields
     fireEvent.change(getByLabelText('Title:'), { target: { value: 'Test Event' } });
@@ -23,7 +24,6 @@ describe('AddEvent component', () => {
     fireEvent.change(getByLabelText('Time:'), { target: { value: '12:00' } });
     fireEvent.change(getByLabelText('Room:'), { target: { value: 'Test Room' } });
     fireEvent.change(getByLabelText('Add people:'), { target: { value: 'Person 1, Person 2' } });
-
 
     fireEvent.submit(getByText('Add Event'));
 
@@ -46,6 +46,5 @@ describe('AddEvent component', () => {
         })
       });
     });
-
   });
 });
